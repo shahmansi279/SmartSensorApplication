@@ -1,0 +1,87 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.project.EventInfoActivity" >
+
+    <TextView
+        android:id="@+id/event_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/event_addr"
+        android:layout_width="135dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/event_title"
+        android:layout_marginTop="10dp"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/event_timing"
+        android:layout_width="135dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/event_addr"
+        android:layout_marginTop="10dp"
+        android:textSize="10sp" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="135dp"
+        android:layout_height="120dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/event_addr" />
+
+    <fragment
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_below="@+id/icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        class="com.google.android.gms.maps.SupportMapFragment" />
+
+    <TextView
+        android:id="@+id/event_desc"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/map"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:id="@+id/btnEvent"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/event_desc"
+        android:layout_marginTop="10dp"
+        android:background="@color/btn_bg"
+        android:onClick="viewEvents"
+        android:text="@string/btnSubscribeEvent"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btnMail"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/event_desc"
+        android:layout_marginTop="10dp"
+        android:background="@color/btn_bg"
+        android:onClick="sendEmail"
+        android:text="@string/btnEventQuery"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="view_background">#e8ecfa</color>
+    <!-- <color name="btn_bg">#FFE64717</color> -->
+
+    <color name="btn_bg">#EF343E</color>
+    <color name="white">#FFFFFF</color>
+    <color name="txt_font">#4e5572</color>
+    <color name="action_bar">#FF4444</color>
+    <color name="button_selector_pressed">#ffaa00</color>
+    <color name="background_color">#fefff3</color>
+    <color name="text_color">#000000</color>
+    <color name="rsblue">#075c93</color>
+    <color name="medium_grey">#CACACA</color>
+    <color name="icon_divider">#4380a8</color>
+    <color name="optin_background">#1998C8</color>
+
+</resources>

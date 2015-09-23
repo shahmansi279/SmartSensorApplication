@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.project"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="17"
+        android:targetSdkVersion="21" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <!-- Google Maps for Android v2 will cache map tiles on external storage -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- Google Maps for Android v2 needs this permission so that it may check the connection state as it must download data -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- These are optional, but recommended. They will allow Maps to use the My Location provider. -->
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <permission
+        android:name="com.project.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.project.permission.MAPS_RECEIVE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        >
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value=“key value“ />
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.project.HomeActivity" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <receiver android:name=".AutoStartBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".AppActivity"
+            android:label="@string/app_title" >
+            <intent-filter>
+                <action android:name="android.intent.action.GIMBALMAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".OptInActivity"
+            android:label="OptIn"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+        <activity
+            android:name=".GimbalMainActivity"
+            android:icon="@drawable/ic_action_settings"
+            android:label="@string/action_settings" />
+        <activity
+            android:name=".SettingsActivity"
+            android:icon="@drawable/ic_action_settings"
+            android:label="@string/action_settings" />
+
+        <service
+            android:name=".AppService"
+            android:exported="false" />
+
+        <!-- Gimbal Integration -->
+        <service
+            android:name="com.gimbal.internal.service.GimbalService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.project.service.GIMBAL_SERVICE" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.gimbal.internal.service.GimbalServiceStartStopReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login" >
+            <action android:name="android.intent.action.LOGIN" />
+        </activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/title_activity_register" >
+            <action android:name="android.intent.action.REGISTER" />
+        </activity>
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home"
+            android:parentActivityName="com.project.LoginActivity" >
+            <action android:name="android.intent.action.HOME" />
+        </activity>
+        <activity android:name=".PlaceItemActivity" >
+        </activity>
+        <activity
+            android:name=".PlaceDetailActivity"
+            android:label="@string/title_activity_place_detail"
+            android:parentActivityName="com.project.HomeActivity" >
+        </activity>
+        <activity
+            android:name=".HomeAdminActivity"
+            android:label="@string/title_activity_home" 
+              android:parentActivityName="com.project.LoginActivity">
+            <action android:name="android.intent.action.ADMINHOME" />
+        </activity>
+        <activity
+            android:name=".BeaconListActivity"
+            android:label="@string/title_activity_login" 
+            android:parentActivityName="com.project.HomeAdminActivity" >
+            <action android:name="android.intent.action.VIEWBEACONS" />
+        </activity>
+        
+         <activity
+                android:name=".MailActivity"
+                android:label="@string/app_name"
+                android:parentActivityName="com.project.PlaceDetailActivity" >
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIL" />
+                </intent-filter>
+            </activity>
+            
+            <activity
+                android:name=".BeaconInfoActivity"
+                android:label="@string/app_name"
+                android:parentActivityName="com.project.BeaconListActivity" >
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIL" />
+                </intent-filter>
+            </activity>
+            
+               <activity
+                android:name=".OfferItemActivity"
+                android:label="@string/app_name"
+                android:parentActivityName="com.project.LoginActivity" >
+                <intent-filter>
+                    <action android:name="android.intent.action.OFFER" />
+                </intent-filter>
+            </activity>
+              <activity
+                android:name=".EventsListActivity"
+                android:label="@string/app_name"
+                android:parentActivityName="com.project.LoginActivity" >
+                <intent-filter>
+                    <action android:name="android.intent.action.OFFER" />
+                </intent-filter>
+            </activity>
+          <activity
+                android:name=".EventDetailActivity"
+                android:label="@string/app_name"
+                android:parentActivityName="com.project.LoginActivity" >
+                <intent-filter>
+                    <action android:name="android.intent.action.OFFER" />
+                </intent-filter>
+            </activity>
+            
+          <activity
+                android:name=".AddPlaceActivity"
+                android:label="@string/app_name"
+                android:parentActivityName="com.project.LoginActivity" >
+                <intent-filter>
+                    <action android:name="android.intent.action.ADDPLACE" />
+                </intent-filter>
+            </activity>
+              <activity
+                android:name=".GeofenceslistActivity"
+                android:label="@string/app_name"
+                android:parentActivityName="com.project.LoginActivity" >
+                <intent-filter>
+                    <action android:name="android.intent.action.GEOFENCES" />
+                </intent-filter>
+            </activity>
+    </application>
+
+</manifest>

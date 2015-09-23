@@ -1,0 +1,31 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.project.GeofenceslistActivity" >
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btnIntend" 
+        android:layout_marginTop="10dp">
+    </ListView>
+
+    <Button
+        android:id="@+id/btnIntend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:background="@color/btn_bg"
+        android:onClick="addPlace"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="@string/btnAddPlace"
+        android:textColor="@color/white" />
+
+</RelativeLayout>
